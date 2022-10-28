@@ -4,13 +4,22 @@ import { Question, QuestionType } from "../interfaces/question";
 import "./QuestionEdit.css";
 
 export const QuestionEdit = ({
+    key,
     index,
     lastIndex,
     question,
     editQuestion,
     removeQuestion,
     swapQuestion
-}: {}) => {
+}: {
+    key: number;
+    index: number;
+    lastIndex: number;
+    question: Question;
+    editQuestion: (questionId: number, newQuestion: Question) => void;
+    removeQuestion: (questionId: number) => void;
+    swapQuestion: (idx1: number, idx2: number) => void;
+}) => {
     const [a, b] = useState<number>(
         question.options.findIndex((s: string) => question.expected === s)
     );
@@ -38,7 +47,7 @@ export const QuestionEdit = ({
     };
 
     const handlePoints = (e: React.ChangeEvent<HTMLInputElement>) => {
-    	question.points = parseInt(e.target.value)
+        question.points = parseInt(e.target.value);
         editQuestion(question.id, question);
     };
 

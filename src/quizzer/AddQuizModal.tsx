@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import { Quiz } from "../interfaces/quiz";
 
 export const AddQuizModal = ({
+    quizzes,
     show,
     handleClose,
     addQuiz
 }: {
+    quizzes: Quiz[];
+    show: boolean;
+    handleClose: () => void;
+    addQuiz: (newQuiz: Quiz) => void;
 }) => {
     const [title, setTitle] = useState<string>("Example Quiz");
+    const [body, setBody] = useState<string>("Example Description");
 
     const saveChanges = () => {
-        addQuiz(title, body);
-        setTitle("Example Quiz");
-        setBody("Example Description");
+        addQuiz({
+            id: quizzes.length + 1,
+            title: title,
+            body: body,
+            published: false,
+            questionList: []
+        });
         handleClose();
     };
 
@@ -36,7 +47,9 @@ export const AddQuizModal = ({
                             as="textarea"
                             rows={3}
                             value={body}
-                            onChange={}
+                            onChange={(
+                                e: React.ChangeEvent<HTMLInputElement>
+                            ) => setTitle(e.target.value)}
                         ></Form.Control>
                     </Form.Group>
                 </Modal.Body>
