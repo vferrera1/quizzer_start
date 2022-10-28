@@ -3,8 +3,6 @@ import { Quiz } from "../interfaces/quiz";
 import { Question, QuestionType } from "../interfaces/question";
 import { QuizList } from "./QuizList";
 import { AddQuizModal } from "./AddQuizModal";
-import QuizzerViewSketch from "./assets/quizzer_view_sketch.jpg";
-import QuizzerEditorSketch from "./assets/quizzer_editor_sketch.jpg";
 
 import "./Quizzer.css";
 import sample from "../data/quizzes.json";
@@ -64,8 +62,6 @@ export function Quizzer(): JSX.Element {
             ></AddQuizModal>
             <hr />
             <h2 style={{ color: "white" }}>Application Sketch</h2>
-            <img src={QuizzerViewSketch} alt="Quizzer View Sketch" />
-            <img src={QuizzerEditorSketch} alt="Quizzer Editor Sketch" />
             <hr />
             <div style={{ color: "white" }}>
                 <h2>Completed Features</h2>
