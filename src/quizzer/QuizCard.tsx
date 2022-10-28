@@ -5,11 +5,9 @@ import "./QuizCard.css";
 import { Question } from "../interfaces/question";
 
 export const QuizCard = ({
-    key,
     quiz,
     handleClick
 }: {
-    key: number;
     quiz: Quiz;
     handleClick: (id: number) => void;
 }) => {
@@ -24,7 +22,7 @@ export const QuizCard = ({
                 <h3
                     className="title"
                     onClick={() => {
-                        handleClick(key);
+                        handleClick(quiz.id);
                     }}
                 >
                     {quiz.title}

@@ -29,7 +29,7 @@ export const QuizQuestion = ({
     const handleSubmitClick = () => {
         handleSubmit(index);
         if (question.submission === question.expected) {
-            addPoints(5);
+            addPoints(question.points);
         }
     };
 

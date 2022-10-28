@@ -77,10 +77,10 @@ export function Quizzer(): JSX.Element {
                         Users can select a specific quiz to see the questions,
                         including the questions name, body, and points (TESTED)
                     </li>
-                    <li>
+                    {/*<li>
                         Quiz questions can be of AT LEAST two types: a short
                         answer question or multiple choice question (TESTED)
-                    </li>
+                    </li>*/}
                     <li>
                         Users can enter or choose an answer for a quiz question,
                         and be told if they are correct (TESTED)
@@ -93,20 +93,20 @@ export function Quizzer(): JSX.Element {
                         Users can clear out their existing answers for a quiz
                         (TESTED)
                     </li>
-                    <li>Users can publish or unpublish a question (TESTED)</li>
-                    <li>
+                    {/*<li>Users can publish or unpublish a question (TESTED)</li>*/}
+                    {/*<li>
                         Users can filter the questions in a list so that only
                         published questions are shown (TESTED)
-                    </li>
-                    <li>
+                    </li>*/}
+                    {/*<li>
                         Users can edit the questions and fields of a quiz
                         (TESTED)
-                    </li>
-                    <li>Users can add a new quiz question (TESTED)</li>
-                    <li>Users can delete an existing quiz question (TESTED)</li>
-                    <li>Users can reorder quiz questions (TESTED)</li>
+                    </li>*/}
+                    {/*<li>Users can add a new quiz question (TESTED)</li>*/}
+                    {/*<li>Users can delete an existing quiz question (TESTED)</li>*/}
+                    {/*<li>Users can reorder quiz questions (TESTED)</li>*/}
                     <li>Users can add a new quiz (TESTED)</li>
-                    <li>Users can delete an existing quiz (TESTED)</li>
+                    {/*<li>Users can delete an existing quiz (TESTED)</li>*/}
                 </ul>
             </div>
         </div>
