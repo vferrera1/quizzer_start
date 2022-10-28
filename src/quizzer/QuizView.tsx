@@ -6,13 +6,11 @@ import { QuizEdit } from "./QuizEdit";
 import "./QuizView.css";
 
 export const QuizView = ({
-    key,
     quiz,
     editQuiz,
     deleteQuiz,
     resetView
 }: {
-    key: number;
     quiz: Quiz;
     editQuiz: (qId: number, newQuiz: Quiz) => void;
     deleteQuiz: (qId: number) => void;

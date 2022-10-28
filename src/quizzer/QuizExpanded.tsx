@@ -11,13 +11,18 @@ export const QuizExpanded = ({
     editQuiz,
     resetView,
     switchEdit
-}: {}) => {
+}: {
+    quiz: Quiz;
+    editQuiz: (qId: number, newQuiz: Quiz) => void;
+    resetView: () => void;
+    switchEdit: () => void;
+}) => {
     const filteredQuestions = quiz.questionList.filter(
         (q: Question): boolean =>
             (quiz.published && q.published) || !quiz.published
     );
 
-    const [p, sp] = useState<number>(0);
+    const [points, setPoints] = useState<number>(0);
     const [submitArr, setSubmitArr] = useState<boolean[]>(
         new Array(filteredQuestions.length)
     );
@@ -29,12 +34,12 @@ export const QuizExpanded = ({
     };
 
     const totalPoints = filteredQuestions.reduce(
-        (prev: number, q: Question): number => prev + q.p,
+        (prev: number, question: Question): number => prev + question.points,
         0
     );
 
-    const addPoints = (p: number) => {
-        sp((prevCount) => prevCount + p);
+    const addPoints = (points: number) => {
+        setPoints((prevCount) => prevCount + points);
     };
 
     const reset = () => {
@@ -42,17 +47,23 @@ export const QuizExpanded = ({
         editQuiz(quiz.id, {
             ...quiz,
             questionList: quiz.questionList.map(
-                (q: Question): Question => ({ ...q, submission: "" })
+                (question: Question): Question => ({
+                    ...question,
+                    submission: ""
+                })
             )
         });
-
-        sp(0);
+        setPoints(0);
     };
 
     const editQuestionSub = (questionId: number, sub: string) => {
         editQuiz(quiz.id, {
             ...quiz,
             questionList: quiz.questionList.map(
+                (question: Question): Question =>
+                    question.id === questionId
+                        ? { ...question, submission: sub }
+                        : question
             )
         });
     };
@@ -88,11 +99,11 @@ export const QuizExpanded = ({
                 </div>
             </div>
             <p className="desc">{quiz.body}</p>
-            {filteredQuestions.map((q: Question, index: number) => (
+            {filteredQuestions.map((question: Question, index: number) => (
                 <QuizQuestion
-                    key={quiz.id + "|" + q.id}
+                    key={quiz.id + "|" + question.id}
                     index={index}
-                    question="q"
+                    question={question}
                     submitted={submitArr[index]}
                     handleSubmit={handleQuestionSubmit}
                     addPoints={addPoints}
@@ -105,7 +116,7 @@ export const QuizExpanded = ({
                     Reset
                 </Button>
                 <span className="score_report">
-                    {p}/{totalPoints}
+                    {points}/{totalPoints}
                 </span>
             </div>
         </>

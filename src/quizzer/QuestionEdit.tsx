@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Question, QuestionType } from "../interfaces/question";
+import { Button, Form } from "react-bootstrap";
+import { Question } from "../interfaces/question";
 
 import "./QuestionEdit.css";
 
 export const QuestionEdit = ({
-    key,
     index,
     lastIndex,
     question,
@@ -12,7 +12,6 @@ export const QuestionEdit = ({
     removeQuestion,
     swapQuestion
 }: {
-    key: number;
     index: number;
     lastIndex: number;
     question: Question;
@@ -36,7 +35,7 @@ export const QuestionEdit = ({
         });
     };
 
-    const switchMulti = () => {
+    const handleSwitch = () => {
         b(0);
         editQuestion(question.id, {
             ...question,
