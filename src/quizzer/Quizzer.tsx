@@ -3,6 +3,8 @@ import { Quiz } from "../interfaces/quiz";
 import { Question, QuestionType } from "../interfaces/question";
 import { QuizList } from "./QuizList";
 import { AddQuizModal } from "./AddQuizModal";
+import QuizzerViewSketch from "./assets/quizzer_view_sketch.jpg";
+import QuizzerEditorSketch from "./assets/quizzer_editor_sketch.jpg";
 
 import "./Quizzer.css";
 import sample from "../data/quizzes.json";
@@ -62,7 +64,8 @@ export function Quizzer(): JSX.Element {
             ></AddQuizModal>
             <hr />
             <h2 style={{ color: "white" }}>Application Sketch</h2>
-            {/* <img src={require("./sketchFINAL.jpg")} /> */}
+            <img src={QuizzerViewSketch} alt="Quizzer View Sketch" />
+            <img src={QuizzerEditorSketch} alt="Quizzer Editor Sketch" />
             <hr />
             <div style={{ color: "white" }}>
                 <h2>Completed Features</h2>
@@ -77,10 +80,6 @@ export function Quizzer(): JSX.Element {
                         Users can select a specific quiz to see the questions,
                         including the questions name, body, and points (TESTED)
                     </li>
-                    {/*<li>
-                        Quiz questions can be of AT LEAST two types: a short
-                        answer question or multiple choice question (TESTED)
-                    </li>*/}
                     <li>
                         Users can enter or choose an answer for a quiz question,
                         and be told if they are correct (TESTED)
@@ -93,20 +92,29 @@ export function Quizzer(): JSX.Element {
                         Users can clear out their existing answers for a quiz
                         (TESTED)
                     </li>
-                    {/*<li>Users can publish or unpublish a question (TESTED)</li>*/}
-                    {/*<li>
+                    <li>Users can publish or unpublish a question (TESTED)</li>
+                    <li>
                         Users can filter the questions in a list so that only
                         published questions are shown (TESTED)
-                    </li>*/}
-                    {/*<li>
-                        Users can edit the questions and fields of a quiz
-                        (TESTED)
-                    </li>*/}
-                    {/*<li>Users can add a new quiz question (TESTED)</li>*/}
-                    {/*<li>Users can delete an existing quiz question (TESTED)</li>*/}
-                    {/*<li>Users can reorder quiz questions (TESTED)</li>*/}
+                    </li>
+                    <li>Users can add a new quiz question (TESTED)</li>
+                    <li>Users can delete an existing quiz question (TESTED)</li>
                     <li>Users can add a new quiz (TESTED)</li>
-                    {/*<li>Users can delete an existing quiz (TESTED)</li>*/}
+                    <li>Users can delete an existing quiz (TESTED)</li>
+                </ul>
+            </div>
+            <div style={{ color: "red" }}>
+                <h2>Incompleted Features</h2>
+                <ul className="incompletedList">
+                    <li>Users can reorder quiz questions (FAILED)</li>
+                    <li>
+                        Quiz questions can be of AT LEAST two types: a short
+                        answer question or multiple choice question (NOT TESTED)
+                    </li>
+                    <li>
+                        Users can edit the questions and fields of a quiz (NOT
+                        TESTED)
+                    </li>
                 </ul>
             </div>
         </div>

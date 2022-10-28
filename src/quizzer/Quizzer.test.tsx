@@ -114,7 +114,7 @@ describe("Quizzer Tests", () => {
         expect(screen.queryByText("✔️")).not.toBeInTheDocument();
         expect(selectOption).toHaveValue("");
     });
-    /*
+
     test("Users can publish or unpublish a question", () => {
         const text = screen.getByText("Simple_Questions");
         text.click();
@@ -170,6 +170,19 @@ describe("Quizzer Tests", () => {
     });
 
     test("Users can delete an existing quiz question", () => {
+        const text = screen.getByText("Simple_Questions");
+        text.click();
+        const editButton = screen.getByText("Edit");
+        editButton.click();
+
+        const deleteQuestionButton = screen.getAllByRole("button", {
+            name: /[Dd]elete/
+        })[3];
+        deleteQuestionButton.click();
+
+        expect(
+            screen.queryByText(QUIZZES[1].questionList[3].body)
+        ).not.toBeInTheDocument();
     });
 
     test("Users can add a new quiz question", () => {
@@ -197,9 +210,10 @@ describe("Quizzer Tests", () => {
             screen.queryByText("Example Question", { exact: false })
         ).toBeInTheDocument();
     });
-
+    /*
     test("Users can edit the questions and fields of a quiz", () => {
     });
+    */
 
     test("Users can reorder quiz questions", () => {
         const text = screen.getByText("Simple_Questions");
@@ -224,7 +238,7 @@ describe("Quizzer Tests", () => {
         expect(afterOrder[0]).toHaveTextContent("Which of these is a color?");
         expect(afterOrder[1]).toHaveTextContent("What is 2+2?");
     });
-
+    /*
     test("Quiz questions can be of AT LEAST two types: a short answer question or multiple choice question ", () => {
         const text = screen.getByText("Simple_Questions");
         text.click();
