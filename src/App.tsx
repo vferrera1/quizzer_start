@@ -3,8 +3,6 @@ import "./App.css";
 import { Quizzer } from "./quizzer/Quizzer";
 import { Button } from "react-bootstrap";
 //import { ShowHideTasks } from "./tasks/ShowHideTasks";
-import QuizzerViewSketch from "./assets/quizzer_view_sketch.jpg";
-import QuizzerEditorSketch from "./assets/quizzer_editor_sketch.jpg";
 
 function App(): JSX.Element {
     const [quizzer, setQuizzer] = useState<boolean>(true);
@@ -23,10 +21,6 @@ function App(): JSX.Element {
             </header>
             <div style={{ display: quizzer ? "block" : "none" }}>
                 <Quizzer></Quizzer>
-            </div>
-            <div>
-                <img src={QuizzerViewSketch} alt="Quizzer View Sketch" />
-                <img src={QuizzerEditorSketch} alt="Quizzer Editor Sketch" />
             </div>
         </div>
     );
